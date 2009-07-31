@@ -14,7 +14,7 @@ converters = (("`", ""),
               ("default CURRENT_TIMESTAMP", ""),
               ("on update CURRENT_TIMESTAMP", ""),
               ("NOT NULL default ''", ""),
-              ("User ", "Users "),
+              ("User ", "\"User\""),
               (re.compile("^KEY.*"), ""))
 
 
@@ -44,4 +44,4 @@ for line in lines:
 # Handle printing of converted insert statements
 for line in lines:
     if line.startswith("INSERT INTO"):
-       sys.stdout.write(line.replace("`", "").replace("User", "Users") + "\n")
+       sys.stdout.write(line.replace("`", "").replace("User", "\"User\"") + "\n")
